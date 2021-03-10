@@ -7,6 +7,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   ScrollController _scrollController = new ScrollController();
 
   bodeScrollControll (double height) {
@@ -17,178 +18,297 @@ class _HomePageState extends State<HomePage> {
       curve: Curves.fastOutSlowIn,
     );
   }
+  @override
+  void initState() {
+     _scrollController.addListener(() => setState(() {
+       _scrollListener();
+     }));
+    super.initState();
+  }
+
+    @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+
+  double expandedHight = 570.0;
+  double res;
+  double get top {
+    res = expandedHight;
+    if (_scrollController.hasClients) {
+      double offset = _scrollController.offset;
+      if (offset < (res - kToolbarHeight)) {
+        setState(() {
+          res -= offset;
+        });
+      } else {
+        setState(() {
+           res = kToolbarHeight;
+        });
+      }
+    }
+    return res;
+  }
+
+  var values = 0.0;
+  _scrollListener() {
+     if(_scrollController.position.pixels <= _scrollController.position.maxScrollExtent){
+       setState(() {
+         values = _scrollController.position.pixels; 
+       });
+    }
+  }
 
     @override
     Widget build(BuildContext context) {
       return Scaffold(
-          body: CustomScrollView(
-            controller: _scrollController,
-            slivers: <Widget>[                 
-              SliverAppBar(  
-                //backwardsCompatibility: true,   
-                leading: Container(
-                  padding: EdgeInsets.all(20),
-                  child: Text("Resume of".toUpperCase()),        
-                ), 
-                actions: [
-                  InkWell(
-                    onTap: () {
-                      bodeScrollControll(600);
-                    },
-                    child: Container(
+          body: Stack(
+            children: [
+              CustomScrollView(
+                controller: _scrollController,
+                
+                slivers: <Widget>[                 
+                  SliverAppBar(  
+                    backwardsCompatibility: true,   
+                    leading: Container(
                       padding: EdgeInsets.all(20),
-                      child: Text("About".toUpperCase()),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      bodeScrollControll(1000);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      child: Text("Skills".toUpperCase()),
-                    ),
-                  ),    
-                  InkWell(
-                    onTap: () {
-                      bodeScrollControll(1400);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      child: Text("Portfolio".toUpperCase()),
-                    ),
-                  ),    
-                  InkWell(
-                    onTap: () {
-                      bodeScrollControll(1800);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      child: Text("Exprience".toUpperCase()),
-                    ),
-                  ),   
-                  InkWell(
-                    onTap: () {
-                      bodeScrollControll(2200);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      child: Text("Blog".toUpperCase()),
-                    ),
-                  ),  
-                  InkWell(
-                    onTap: () {
-                      bodeScrollControll(2600);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      child: Text("Contact".toUpperCase()),
-                    ),
-                  ), 
-                ],
-                leadingWidth: 200,
-                expandedHeight: 600.0,
-                floating: true,
-                pinned: true,
-                snap: true,
-                elevation: 50,
-                backgroundColor: Colors.teal,  
-                flexibleSpace: FlexibleSpaceBar(
-                    background: Container(
-                      padding: EdgeInsets.only(right: 20),
-                      decoration: BoxDecoration(
-                            image:  DecorationImage(
-                          image:  NetworkImage('https://static.vecteezy.com/system/resources/previews/000/523/561/non_2x/mobile-application-development-on-laptop-screen-concept-background-app-coding-and-web-development-cross-platform-devices-smartphone-tablet-and-computer-vector.jpg'),
-                          fit: BoxFit.cover,
+                      child: Text("Resume of".toUpperCase()),        
+                    ), 
+                    
+                    actions: [
+                      InkWell(
+                        onTap: () {
+                          bodeScrollControll(550);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Text("About".toUpperCase()),
                         ),
                       ),
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          SizedBox(height: 100,),
-                          AvatarGlow(
-                            glowColor: Colors.green,
-                            endRadius: 90.0,
-                            duration: Duration(milliseconds: 2000),
-                            repeat: true,
-                            showTwoGlows: true,
-                            repeatPauseDuration: Duration(milliseconds: 100),
-                            child: Material(
-                              //cselevation: 8.0,
-                              shape: CircleBorder(),
-                              child: ClipOval(
-                                child: Image.network(
-                                "https://pbs.twimg.com/profile_images/1089761028886298626/ueQWp3pw.jpg",
-                                width: 120,
-                                 height: 120,
+                      InkWell(
+                        onTap: () {
+                          bodeScrollControll(1000);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Text("Skills".toUpperCase()),
+                        ),
+                      ),    
+                      InkWell(
+                        onTap: () {
+                          bodeScrollControll(1400);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Text("Portfolio".toUpperCase()),
+                        ),
+                      ),    
+                      InkWell(
+                        onTap: () {
+                          bodeScrollControll(1800);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Text("Exprience".toUpperCase()),
+                        ),
+                      ),   
+                      InkWell(
+                        onTap: () {
+                          bodeScrollControll(2200);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Text("Blog".toUpperCase()),
+                        ),
+                      ),  
+                      InkWell(
+                        onTap: () {
+                          bodeScrollControll(2600);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Text("Contact".toUpperCase()),
+                        ),
+                      ), 
+                    ],
+                    leadingWidth: 200,
+                    expandedHeight: 600.0,
+                    floating: true,
+                    pinned: true,
+                    snap: true,
+                    elevation: 50,
+                    backgroundColor: Colors.teal,  
+                    flexibleSpace: FlexibleSpaceBar(
+                        background: Container(
+                          padding: EdgeInsets.only(right: 20),
+                          decoration: BoxDecoration(
+                                image:  DecorationImage(
+                              image:  NetworkImage('https://static.vecteezy.com/system/resources/previews/000/523/561/non_2x/mobile-application-development-on-laptop-screen-concept-background-app-coding-and-web-development-cross-platform-devices-smartphone-tablet-and-computer-vector.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(height: 100,),
+                              AvatarGlow(
+                                glowColor: Colors.green,
+                                endRadius: 90.0,
+                                duration: Duration(milliseconds: 2000),
+                                repeat: true,
+                                showTwoGlows: true,
+                                repeatPauseDuration: Duration(milliseconds: 100),
+                                child: Material(
+                                  //cselevation: 8.0,
+                                  shape: CircleBorder(),
+                                  child: ClipOval(
+                                    child: Image.network(
+                                    "https://pbs.twimg.com/profile_images/1089761028886298626/ueQWp3pw.jpg",
+                                    width: 120,
+                                     height: 120,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(height: 24,),
-                          Text(
-                            "Md Mehedi Hasan".toUpperCase(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 32,
-                              fontWeight: FontWeight.w700
-                            ),
-                          ),
-                          SizedBox(height: 20,),
-                          Text(
-                            "Flutter Developer || Web Developer || UX/UI Expart".toUpperCase(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700
-                            ),
-                          ),
-                          SizedBox(height: 20,),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                MaterialButton(
-                                  height: 48,  
-                                  minWidth: 150,                       
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    side: BorderSide(color: Colors.purple)),
-                                  onPressed: () {},
-                                  color: Colors.purple,
-                                  textColor: Colors.white,
-                                  child: Text("Hire me".toUpperCase(),
-                                    style: TextStyle(fontSize: 14)),
+                              SizedBox(height: 24,),
+                              Text(
+                                "Md Mehedi Hasan".toUpperCase(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.w700
                                 ),
-                                SizedBox(width: 12,),
-                                MaterialButton(
-                                  height: 48,  
-                                  minWidth: 150,                          
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    side: BorderSide(color: Colors.purple)),
-                                  onPressed: () {},
-                                  color: Colors.purple,
-                                  textColor: Colors.white,
-                                  child: Text("Download CV".toUpperCase(),
-                                    style: TextStyle(fontSize: 14)),
+                              ),
+                              SizedBox(height: 20,),
+                              Text(
+                                "Flutter Developer || Web Developer || UX/UI Expart".toUpperCase(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700
                                 ),
+                              ),
+                              SizedBox(height: 20,),
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    MaterialButton(
+                                      height: 48,  
+                                      minWidth: 150,                       
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        side: BorderSide(color: Colors.purple)),
+                                      onPressed: () {},
+                                      color: Colors.purple,
+                                      textColor: Colors.white,
+                                      child: Text("Hire me".toUpperCase(),
+                                        style: TextStyle(fontSize: 14)),
+                                    ),
+                                    SizedBox(width: 12,),
+                                    MaterialButton(
+                                      height: 48,  
+                                      minWidth: 150,                          
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        side: BorderSide(color: Colors.purple)),
+                                      onPressed: () {},
+                                      color: Colors.purple,
+                                      textColor: Colors.white,
+                                      child: Text("Download CV".toUpperCase(),
+                                        style: TextStyle(fontSize: 14)),
+                                    ),
   
-                              ],
-                            )   ,
-                          )
-                        ],
-                      ),
-                    ),                  
-                ),
+                                  ],
+                                )   ,
+                              )
+                            ],
+                          ),
+                        ),                  
+                    ),
+                  ),
+
+                  //Body section 
+                  Container(
+                    child: SliverList(
+                      delegate:  SliverChildListDelegate(_buildList)
+                    ),
+                  ),
+                ],
               ),
-              
-              Container(
-                child: SliverList(
-                  delegate:  SliverChildListDelegate(_buildList)
-                ),
-              ),
+
+
+             values <= 500 || values == null? Positioned(
+                top: top,
+                width: MediaQuery.of(context).size.width,
+                child: Align(
+                  // ignore: deprecated_member_use
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          width: 60,
+                          height: 60,
+                          // ignore: deprecated_member_use
+                          child: RaisedButton(
+                            onPressed: (){
+                             },
+                            color: Colors.deepOrange,  
+                            textColor: Colors.white,
+                            shape: CircleBorder(side: BorderSide.none),
+                            child: Icon(Icons.web)
+                            ),
+                          ),
+                          SizedBox(width: 20,),
+                          Container(
+                          width: 60,
+                          height: 60,
+                          // ignore: deprecated_member_use
+                          child: RaisedButton(
+                            onPressed: (){
+                             },
+                            color: Colors.deepOrange,  
+                            textColor: Colors.white,
+                            shape: CircleBorder(side: BorderSide.none),
+                            child: Icon(Icons.web)
+                            ),
+                          ),
+                          SizedBox(width: 20,),
+                          Container(
+                          width: 60,
+                          height: 60,
+                          // ignore: deprecated_member_use
+                          child: RaisedButton(
+                            onPressed: (){
+                             },
+                            color: Colors.deepOrange,  
+                            textColor: Colors.white,
+                            shape: CircleBorder(side: BorderSide.none),
+                            child: Icon(Icons.web)
+                            ),
+                          ),
+                          SizedBox(width: 20,),
+                          Container(
+                          width: 60,
+                          height: 60,
+                          // ignore: deprecated_member_use
+                          child: RaisedButton(
+                            onPressed: (){
+                             },
+                            color: Colors.deepOrange,  
+                            textColor: Colors.white,
+                            shape: CircleBorder(side: BorderSide.none),
+                            child: Icon(Icons.web)
+                            ),
+                          ),
+                    ],
+                  ),
+                    )
+              ) : Container(height: 0),
             ],
           ),
       );
@@ -196,28 +316,28 @@ class _HomePageState extends State<HomePage> {
 
     List<Widget> _buildList = [
       Container(
-        color: Colors.green,
-        height: 400,
+        color: Colors.white,
+        height: 768,
       ),
       Container(
         color: Colors.teal,
-        height: 400,
+        height: 768,
       ),
       Container(
         color: Colors.yellow,
-        height: 400,
+        height: 768,
       ),
       Container(
         color: Colors.red,
-        height: 400,
+        height: 768,
       ),
       Container(
         color: Colors.purple,
-        height: 400,
+        height: 768,
       ),
       Container(
         color: Colors.pink,
-        height: 800,
+        height: 768,
       ),
     ];
 }
