@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './screens/home_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
