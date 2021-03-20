@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+
 import 'package:portfolio/constant/color.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -32,6 +34,22 @@ class _HomePageState extends State<HomePage> {
     _scrollController.dispose();
     super.dispose();
   }
+
+  static const facebookURL = "https://www.facebook.com/vipmehedi/";
+   static const linkedinURL = "https://www.linkedin.com/in/jpmehedi/";
+    static const githubURL = "https://www.github.com/jpmehedi/";
+     static const youtubeURL = "https://www.youtube.com/jpmehedi/";
+
+  Future launchURL(url) async{
+
+    if (await canLaunch(url))
+      await launch(url);
+    else 
+    // can't launch url, there is some error
+    throw "Could not launch $url";
+
+  }
+
 
 
   double expandedHight = 570.0;
@@ -256,8 +274,9 @@ class _HomePageState extends State<HomePage> {
                           height: 60,
                           // ignore: deprecated_member_use
                           child: RaisedButton(
-                            onPressed: (){
-                             },
+                             onPressed: () async{
+                             await launchURL(facebookURL);
+                            },
                             color: Colors.deepOrange,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
@@ -270,8 +289,9 @@ class _HomePageState extends State<HomePage> {
                           height: 60,
                           // ignore: deprecated_member_use
                           child: RaisedButton(
-                            onPressed: (){
-                             },
+                             onPressed: () async{
+                             await launchURL(linkedinURL);
+                            },
                             color: Colors.deepOrange,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
@@ -284,8 +304,9 @@ class _HomePageState extends State<HomePage> {
                           height: 60,
                           // ignore: deprecated_member_use
                           child: RaisedButton(
-                            onPressed: (){
-                             },
+                            onPressed: () async{
+                             await launchURL(githubURL);
+                            },
                             color: Colors.deepOrange,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
@@ -298,8 +319,9 @@ class _HomePageState extends State<HomePage> {
                           height: 60,
                           // ignore: deprecated_member_use
                           child: RaisedButton(
-                            onPressed: (){
-                             },
+                            onPressed: () async{
+                             await launchURL(youtubeURL);
+                            },
                             color: Colors.deepOrange,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
