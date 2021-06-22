@@ -3,6 +3,8 @@ import 'package:avatar_glow/avatar_glow.dart';
 
 import 'package:portfolio/constant/color.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,7 +40,8 @@ class _HomePageState extends State<HomePage> {
   static const facebookURL = "https://www.facebook.com/vipmehedi/";
    static const linkedinURL = "https://www.linkedin.com/in/jpmehedi/";
     static const githubURL = "https://www.github.com/jpmehedi/";
-     static const youtubeURL = "https://www.youtube.com/jpmehedi/";
+     static const stackoverflowURL = "https://stackoverflow.com/users/12755955/mehedi-hasan/";
+     static const blogURL = "https://mehedihasanjp.blogspot.com/";
 
   Future launchURL(url) async{
 
@@ -97,60 +100,108 @@ class _HomePageState extends State<HomePage> {
                     ), 
                     
                     actions: [
-                      InkWell(
-                        onTap: () {
-                          bodeScrollControll(550);
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          child: Text("About".toUpperCase()),
+                      Container(
+                        height: 56,
+                        padding: EdgeInsets.all(8),
+                        child: InkWell(
+                          hoverColor: Colors.black.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(4),
+                          onTap: () {
+                            bodeScrollControll(550);
+                          },
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text("About".toUpperCase()),
+                            ),
+                          ),
                         ),
                       ),
-                      InkWell(
-                        onTap: () {
-                          bodeScrollControll(1000);
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          child: Text("Skills".toUpperCase()),
-                        ),
-                      ),    
-                      InkWell(
-                        onTap: () {
-                          bodeScrollControll(1400);
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          child: Text("Portfolio".toUpperCase()),
-                        ),
-                      ),    
-                      InkWell(
-                        onTap: () {
-                          bodeScrollControll(1800);
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          child: Text("Exprience".toUpperCase()),
-                        ),
-                      ),   
-                      InkWell(
-                        onTap: () {
-                          bodeScrollControll(2200);
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          child: Text("Blog".toUpperCase()),
-                        ),
-                      ),  
-                      InkWell(
-                        onTap: () {
-                          bodeScrollControll(2600);
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          child: Text("Contact".toUpperCase()),
+                      Container(
+                        height: 56,
+                        padding: EdgeInsets.all(8),
+                        child: InkWell(
+                          hoverColor: Colors.black.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(4),
+                          onTap: () {
+                            bodeScrollControll(1000);
+                          },
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text("Skills".toUpperCase()),
+                            ),
+                          ),
                         ),
                       ), 
+                       Container(
+                        height: 56,
+                        padding: EdgeInsets.all(8),
+                        child: InkWell(
+                          hoverColor: Colors.black.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(4),
+                          onTap: () {
+                            bodeScrollControll(1400);
+                          },
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text("Portfolio".toUpperCase()),
+                            ),
+                          ),
+                        ),
+                      ), 
+                      Container(
+                        height: 56,
+                        padding: EdgeInsets.all(8),
+                        child: InkWell(
+                          hoverColor: Colors.black.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(4),
+                          onTap: () {
+                            bodeScrollControll(1800);
+                          },
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text("Exprience".toUpperCase()),
+                            ),
+                          ),
+                        ),
+                      ), 
+                      Container(
+                        height: 56,
+                        padding: EdgeInsets.all(8),
+                        child: InkWell(
+                          hoverColor: Colors.black.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(4),
+                          onTap: ()async {
+                            await launchURL(blogURL);
+                          },
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text("Blog".toUpperCase()),
+                            ),
+                          ),
+                        ),
+                      ),   
+                      Container(
+                        height: 56,
+                        padding: EdgeInsets.all(8),
+                        child: InkWell(
+                          hoverColor: Colors.black.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(4),
+                          onTap: () {
+                             bodeScrollControll(2600);
+                          },
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text("Contact".toUpperCase()),
+                            ),
+                          ),
+                        ),
+                      ),  
                     ],
                     leadingWidth: 200,
                     expandedHeight: 600.0,
@@ -163,19 +214,21 @@ class _HomePageState extends State<HomePage> {
                         background: Container(
                           padding: EdgeInsets.only(right: 20),
                           decoration: BoxDecoration(
-                                image:  DecorationImage(
-                              image:  NetworkImage('https://static.vecteezy.com/system/resources/previews/000/523/561/non_2x/mobile-application-development-on-laptop-screen-concept-background-app-coding-and-web-development-cross-platform-devices-smartphone-tablet-and-computer-vector.jpg'),
+                            image:  DecorationImage(
+                              colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken),
+                              image: NetworkImage('https://mehedihasaninfo.com/images/abc.png'),
+                             // image:  NetworkImage('https://static.vecteezy.com/system/resources/previews/000/523/561/non_2x/mobile-application-development-on-laptop-screen-concept-background-app-coding-and-web-development-cross-platform-devices-smartphone-tablet-and-computer-vector.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
                           width: MediaQuery.of(context).size.width,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               SizedBox(height: 100,),
                               AvatarGlow(
-                                glowColor: Colors.green,
+                                glowColor: Colors.teal,
                                 endRadius: 90.0,
                                 duration: Duration(milliseconds: 2000),
                                 repeat: true,
@@ -214,16 +267,16 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(height: 20,),
                               Container(
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     MaterialButton(
                                       height: 48,  
                                       minWidth: 150,                       
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(8.0),
-                                        side: BorderSide(color: Colors.purple)),
+                                        side: BorderSide(color: Colors.teal)),
                                       onPressed: () {},
-                                      color: Colors.purple,
+                                      color: Colors.teal,
                                       textColor: Colors.white,
                                       child: Text("Hire me".toUpperCase(),
                                         style: TextStyle(fontSize: 14)),
@@ -234,9 +287,9 @@ class _HomePageState extends State<HomePage> {
                                       minWidth: 150,                          
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(8.0),
-                                        side: BorderSide(color: Colors.purple)),
+                                        side: BorderSide(color: Colors.teal)),
                                       onPressed: () {},
-                                      color: Colors.purple,
+                                      color: Colors.teal,
                                       textColor: Colors.white,
                                       child: Text("Download CV".toUpperCase(),
                                         style: TextStyle(fontSize: 14)),
@@ -277,10 +330,10 @@ class _HomePageState extends State<HomePage> {
                              onPressed: () async{
                              await launchURL(facebookURL);
                             },
-                            color: Colors.deepOrange,  
+                            color: Colors.blueGrey,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
-                            child: Icon(Icons.web)
+                            child: Icon(FontAwesomeIcons.facebookF)
                             ),
                           ),
                           SizedBox(width: 20,),
@@ -292,10 +345,10 @@ class _HomePageState extends State<HomePage> {
                              onPressed: () async{
                              await launchURL(linkedinURL);
                             },
-                            color: Colors.deepOrange,  
+                            color: Colors.blueGrey,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
-                            child: Icon(Icons.web)
+                            child: Icon(FontAwesomeIcons.linkedinIn)
                             ),
                           ),
                           SizedBox(width: 20,),
@@ -307,10 +360,10 @@ class _HomePageState extends State<HomePage> {
                             onPressed: () async{
                              await launchURL(githubURL);
                             },
-                            color: Colors.deepOrange,  
+                            color: Colors.blueGrey,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
-                            child: Icon(Icons.web)
+                            child: Icon(FontAwesomeIcons.github)
                             ),
                           ),
                           SizedBox(width: 20,),
@@ -320,12 +373,12 @@ class _HomePageState extends State<HomePage> {
                           // ignore: deprecated_member_use
                           child: RaisedButton(
                             onPressed: () async{
-                             await launchURL(youtubeURL);
+                             await launchURL(stackoverflowURL);
                             },
-                            color: Colors.deepOrange,  
+                            color: Colors.blueGrey,  
                             textColor: Colors.white,
                             shape: CircleBorder(side: BorderSide.none),
-                            child: Icon(Icons.web)
+                            child: Icon(FontAwesomeIcons.stackOverflow)
                             ),
                           ),
                     ],
@@ -521,4 +574,23 @@ I’m Mehedi Hasan. I passionate about Cross-platform Mobile application develop
 
   @override
   double get minExtent => 80.0;
+}
+class LinearGradientMask extends StatelessWidget {
+  LinearGradientMask({this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (bounds) {
+        return RadialGradient(
+          center: Alignment.topLeft,
+          radius: 1,
+          colors: [Colors.blue, Colors.red],
+          tileMode: TileMode.mirror,
+        ).createShader(bounds);
+      },
+      child: child,
+    );
+  }
 }
