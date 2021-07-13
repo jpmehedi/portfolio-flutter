@@ -25,7 +25,7 @@ class StickyHeader extends StatelessWidget {
         children: [
           SizedBox(height: 100,),
           AvatarGlow(
-            glowColor: Colors.teal,
+            glowColor: Colors.black45,
             endRadius: 90.0,
             duration: Duration(milliseconds: 2000),
             repeat: true,

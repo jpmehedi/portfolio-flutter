@@ -65,9 +65,9 @@ class AboutPage extends StatelessWidget {
                           ),
                           SizedBox(width: 50,),
                           Expanded(
-                flex: 8,
+                             flex: 8,
                             child: Text("mehedihasaninform@gmail.com", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: textColor)),
-                          )
+                            )
                         ],
                       ),
                       Row(
