@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constant/url.dart';
 import 'package:portfolio/screens/body/about.dart';
 import 'package:portfolio/screens/body/contact.dart';
+import 'package:portfolio/screens/body/education.dart';
 import 'package:portfolio/screens/body/exprience.dart';
 import 'package:portfolio/screens/body/portfolio.dart';
 import 'package:portfolio/screens/body/skills.dart';
@@ -120,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                   //Body and Footer Section
                   Container(
                     child: SliverList(
-                      delegate:  SliverChildListDelegate(_buildList)
+                      delegate:  SliverChildListDelegate(_pages)
                     ),
                   ),
 
@@ -158,11 +159,12 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-List<Widget> _buildList = [
+List<Widget> _pages = [
   AboutPage(),
   SkillsPage(),
   ContactPage(),
   ExpriencePage(),
+  EducationPage(),
   PortfolioPage(),
   FooterPage()
 ];
