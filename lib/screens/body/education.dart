@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constant/color.dart';
 import 'package:portfolio/widgets/education_card_builder.dart';
-import 'package:portfolio/widgets/exprience_card_builder.dart';
 
 class EducationPage extends StatelessWidget {
   const EducationPage({ Key key }) : super(key: key);
