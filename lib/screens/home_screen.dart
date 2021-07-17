@@ -5,6 +5,7 @@ import 'package:portfolio/screens/body/contact.dart';
 import 'package:portfolio/screens/body/education.dart';
 import 'package:portfolio/screens/body/exprience.dart';
 import 'package:portfolio/screens/body/portfolio.dart';
+import 'package:portfolio/screens/body/reference.dart';
 import 'package:portfolio/screens/body/skills.dart';
 import 'package:portfolio/screens/footer/footer.dart';
 import 'package:portfolio/screens/header/header.dart';
@@ -162,10 +163,11 @@ class _HomePageState extends State<HomePage> {
 List<Widget> _pages = [
   AboutPage(),
   SkillsPage(),
-  ContactPage(),
+  PortfolioPage(),
   ExpriencePage(),
   EducationPage(),
-  PortfolioPage(),
+  ReferencePage(),
+  ContactPage(),
   FooterPage()
 ];
 
