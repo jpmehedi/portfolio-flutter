@@ -105,7 +105,6 @@ class ProjectShowCase extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 100),
       width: MediaQuery.of(context).size.width,
-      // color: Colors.red,
       height: size * 2 - 250,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -118,6 +117,7 @@ class ProjectShowCase extends StatelessWidget {
                   child: Container(
                     height: size - 200,
                     width: size,
+                    child: Image.asset("assets/project/clockdo.png",),
                   ),
                 ),
                 Card(

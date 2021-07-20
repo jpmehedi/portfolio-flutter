@@ -14,7 +14,7 @@ class StickyHeader extends StatelessWidget {
       decoration: BoxDecoration(
         image:  DecorationImage(
           colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken),
-          image: NetworkImage('https://mehedihasaninfo.com/images/abc.png'),
+          image: AssetImage("assets/abc.png"),
           fit: BoxFit.cover,
         ),
       ),
@@ -25,7 +25,7 @@ class StickyHeader extends StatelessWidget {
         children: [
           SizedBox(height: 100,),
           AvatarGlow(
-            glowColor: Colors.black45,
+            glowColor: Colors.teal,
             endRadius: 90.0,
             duration: Duration(milliseconds: 2000),
             repeat: true,
@@ -34,9 +34,9 @@ class StickyHeader extends StatelessWidget {
             child: Material(
               shape: CircleBorder(),
               child: ClipOval(
-                child: Image.network(
-                "https://pbs.twimg.com/profile_images/1089761028886298626/ueQWp3pw.jpg",
-                width: 120,
+                child: Image.asset(
+                "assets/mehedi_hasan.jpg",
+                 width: 120,
                  height: 120,
                 ),
               ),

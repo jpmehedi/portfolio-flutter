@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constant/url.dart';
 import 'package:portfolio/screens/body/about.dart';
 import 'package:portfolio/screens/body/contact.dart';
@@ -12,7 +13,6 @@ import 'package:portfolio/screens/header/header.dart';
 import 'package:portfolio/utils/functions.dart';
 import 'package:portfolio/widgets/nav_button.dart';
 import 'package:portfolio/widgets/social_button.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       super.initState();
     }
 
-    bodeScrollControll (double height) {
+    bodyScrollControll (double height) {
       _scrollController.animateTo(
         height,
         duration: Duration(seconds: 1),
@@ -77,8 +77,17 @@ class _HomePageState extends State<HomePage> {
                   SliverAppBar(  
                     backwardsCompatibility: true,   
                     leading: Container(
-                      padding: EdgeInsets.all(20),
-                      child: Text("Resume of".toUpperCase()),        
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      margin: EdgeInsets.only(left: 100),
+                      child: MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: (){
+                            bodyScrollControll(0.0);
+                          },
+                          child: Text("Resume of".toUpperCase()),
+                        ),
+                      ),        
                     ), 
                     
                     //Navigation bar section
@@ -86,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                       for(int i = 0; i < navBarButtonText.length; i++)
                       NavButton(
                         onTap: (){
-                          bodeScrollControll(bodeScrollControlHeight[i]);
+                          bodyScrollControll(bodyScrollControlHeight[i]);
                         },
                         buttonText: navBarButtonText[i],
                       ),
@@ -101,7 +110,9 @@ class _HomePageState extends State<HomePage> {
                           await launchURL(URL.youtubeURL);
                         },
                         buttonText: "Youtube",
-                      ),   
+                      ),
+                      SizedBox(width: 80,)
+
                     ],
 
 
@@ -179,9 +190,10 @@ List<IconData> socialIcon = [
   FontAwesomeIcons.facebookF, FontAwesomeIcons.linkedinIn, FontAwesomeIcons.github, FontAwesomeIcons.stackOverflow
 ];
 
-List<dynamic> bodeScrollControlHeight = [
-  550, 1000, 1400, 1800, 2600
+List<dynamic> bodyScrollControlHeight = [
+  550, 1000, 1500, 2600, 4800
 ];
+
 
 List<String> navBarButtonText = [
   "About", "Skills", "Portfolio", "Experience", "Contact"

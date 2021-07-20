@@ -114,14 +114,14 @@ final String recomendationTwo = "I am pleased to write a letter of recommendatio
 
 List<Map<String, String>> recomendations = <Map<String, String>>[
   {
-    "recomender_picture": "https://pbs.twimg.com/profile_images/1089761028886298626/ueQWp3pw.jpg",
+    "recomender_picture": "assets/images/abu_sufian.jpg",
     "recomender_name": "Abu Sufian",
     "recomender_position": 'SYSTEM ENGINNER MATCHA JAPAN',
     "recomendation": recomendationOne
   },
   
   {
-    "recomender_picture": "https://pbs.twimg.com/profile_images/1089761028886298626/ueQWp3pw.jpg",
+    "recomender_picture": "assets/images/atm_mahabub_sir.jpg",
     "recomender_name": "A.T.M Mahabubur Rahaman",
     "recomender_position": "DEAN DEPT. OF CSE at DIU",
     "recomendation": recomendationTwo
