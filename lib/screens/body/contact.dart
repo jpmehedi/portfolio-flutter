@@ -7,7 +7,8 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
       color: Colors.teal,
-      height: 768,
+      height: 580,
+      child: Image.asset("assets/contact_bg.png", fit: BoxFit.cover,),
     );
   }
 }
