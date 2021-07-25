@@ -16,29 +16,28 @@ class SkillBarBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-     child: Container(
-       child: Column(
-         children: [
-           Container(
-             child: Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                 Text("$skillName".toUpperCase(), style: TextStyle(fontSize: 18, color: defaultGreen, fontWeight: FontWeight.w500, fontFamily: "Arial"),),
-                 Text("$progress%",style: TextStyle(fontSize: 18, color: defaultGreen, fontWeight: FontWeight.w500, fontFamily: "Arial"),),
-               ],
-             ),
+     child: Column(
+       mainAxisAlignment: MainAxisAlignment.start,
+       children: [
+         Container(
+           child: Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             children: [
+               Text("$skillName".toUpperCase(), style: TextStyle(fontSize: 18, color: defaultGreen, fontWeight: FontWeight.w500, fontFamily: "Arial"),),
+               Text("$progress%",style: TextStyle(fontSize: 18, color: defaultGreen, fontWeight: FontWeight.w500, fontFamily: "Arial"),),
+             ],
            ),
-           SizedBox(height: 20,),
-           Container(
-             child: LinearProgressIndicator(
-               backgroundColor: defaultGreen.withOpacity(0.4),
-               value: progressValue ?? 0.0,  
-               valueColor: AlwaysStoppedAnimation(defaultGreen),
-               minHeight: 08,
-             ),
-           )
-         ],
-       ),
+         ),
+         SizedBox(height: 16,),
+         Container(
+           child: LinearProgressIndicator(
+             backgroundColor: defaultGreen.withOpacity(0.4),
+             value: progressValue ?? 0.0,  
+             valueColor: AlwaysStoppedAnimation(defaultGreen),
+             minHeight: 05,
+           ),
+         )
+       ],
      ),
    );
   }
