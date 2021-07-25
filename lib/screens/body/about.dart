@@ -10,7 +10,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      height: 472,
+      height: 450,
       child: Container(
         margin: EdgeInsets.only(top: 80, bottom: 80),
         padding: EdgeInsets.symmetric(horizontal: 100),

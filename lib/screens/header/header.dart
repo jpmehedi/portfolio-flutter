@@ -53,7 +53,7 @@ class StickyHeader extends StatelessWidget {
           ),
           SizedBox(height: 20,),
           Text(
-            "Flutter Developer || Web Developer || UX/UI Expart".toUpperCase(),
+            "Flutter Developer || NodeJs Developer || UX/UI Expart".toUpperCase(),
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -69,7 +69,7 @@ class StickyHeader extends StatelessWidget {
                   height: 48,  
                   minWidth: 150,                       
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(4.0),
                     side: BorderSide(color: Colors.teal)),
                   onPressed: () {},
                   color: Colors.teal,
@@ -82,7 +82,7 @@ class StickyHeader extends StatelessWidget {
                   height: 48,  
                   minWidth: 150,                          
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(4.0),
                     side: BorderSide(color: Colors.teal)),
                   onPressed: () {},
                   color: Colors.teal,

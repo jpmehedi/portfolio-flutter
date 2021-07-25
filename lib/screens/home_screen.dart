@@ -191,7 +191,7 @@ List<IconData> socialIcon = [
 ];
 
 List<dynamic> bodyScrollControlHeight = [
-  550, 1000, 1500, 2600, 4800
+  550, 980, 1500, 2600, 4800
 ];
 
 
