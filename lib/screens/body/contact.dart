@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/address_tile.dart';
+import 'package:portfolio/widgets/custom_textfield.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+   final width = MediaQuery.of(context).size.width;
     return  Stack(
       children: [
         Container(
@@ -20,19 +22,7 @@ class ContactPage extends StatelessWidget {
           left: width / 4 + 50,
           right: width / 4 + 50,
           child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(4.0),
-              boxShadow:[
-                 BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ] 
-            ),
-
+            decoration: boxDecoration(),
             child: Form(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -54,33 +44,28 @@ class ContactPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text("Feel free to contact me",  style: TextStyle(height: 1.6,fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff2c2c2c))),
-                                  CustomFromField(width: width),
-                                  CustomFromField(width: width),
-                                  CustomFromField(width: width),
+                                  for(int i = 0; i < hintText.length; i++)
+                                  CustomFromField(
+                                    hintText: hintText[i],
+                                    icon: icon[i],
+                                  ),
                                   Container(
                                     width: width / 4 - 100,
                                     height: 40,
                                     child: TextFormField(
-                                      minLines: 6, // any number you need (It works as the rows for the textarea)
+                                      minLines: 6, 
                                       keyboardType: TextInputType.multiline,
                                       maxLines: null,
                                       decoration: InputDecoration(
-                                        hintText: "Write your massage...."
+                                        hintText: "Write your massage....",
+                                        focusedBorder: UnderlineInputBorder( borderSide: BorderSide(color: Colors.teal), ),
                                       ),
+                                      
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 80,
-                                    height: 40,
+                                  SizedBox( width: 80, height: 40,
                                     child: ElevatedButton(
-                                      style: ButtonStyle(
-                                        backgroundColor: MaterialStateProperty.all(Colors.teal),
-                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(4),
-                                          )
-                                        )
-                                      ),
+                                      style: buttonStyle(),
                                       onPressed: (){}, 
                                       child: Text("Send"),
                                     ),
@@ -124,53 +109,38 @@ class ContactPage extends StatelessWidget {
       ],
     );
   }
-}
 
-class CustomFromField extends StatelessWidget {
-  const CustomFromField({
-    Key key,
-    @required this.width,
-  }) : super(key: key);
-
-  final double width;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width / 4 - 100,
-      height: 40,
-      child: TextFormField(
-          decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          hintText: "Name",
-          contentPadding: EdgeInsets.only(top: 10),
-          prefixIcon: Icon(Icons.home, size: 18,),
+  BoxDecoration boxDecoration() {
+    return BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(4.0),
+    boxShadow:[
+        BoxShadow(
+        color: Colors.black.withOpacity(0.5),
+        spreadRadius: 5,
+        blurRadius: 7,
+        offset: Offset(0, 3), // changes position of shadow
       ),
-     ),
-    );
+    ] 
+  );
+  }
+
+  ButtonStyle buttonStyle() {
+    return ButtonStyle(
+    backgroundColor: MaterialStateProperty.all(Colors.teal),
+    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      )
+    )
+   );
   }
 }
 
-class AddressTileBuilder extends StatelessWidget {
-  final String lebel;
-  final String data;
-  const AddressTileBuilder({
-    Key key, this.lebel, this.data
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-         SelectableText("$lebel", style: TextStyle(height: 1.6,fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff2c2c2c))),
-         SelectableText("$data",  style: TextStyle(height: 1.6,fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff2c2c2c))),
-        ],
-      ),
-    );
-  }
-}
+List<String> hintText = <String>[
+  "Name", "Subject", "Email"
+];
+List<IconData> icon = <IconData>[
+  Icons.person, Icons.note, Icons.email
+];
