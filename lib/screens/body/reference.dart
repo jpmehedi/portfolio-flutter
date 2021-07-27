@@ -88,7 +88,7 @@ class _ReferencePageState extends State<ReferencePage> {
                         onTap: () => _controller.animateToPage(entry.key),
                         child: Container(
                           width: 48.0,
-                          height: 4.0,
+                          height: 2.0,
                           margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                           decoration: BoxDecoration(
                               shape: BoxShape.rectangle,

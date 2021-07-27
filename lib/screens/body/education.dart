@@ -11,7 +11,7 @@ class EducationPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.only(top: 36, bottom: 72),
+          padding: EdgeInsets.only(top: 36, bottom: 50),
           width: MediaQuery.of(context).size.width,
           color: defaultWhite,
           child: Center(child: Text("Education", style: TextStyle(color: defaultBlack, fontSize: 28, fontWeight: FontWeight.bold),)),

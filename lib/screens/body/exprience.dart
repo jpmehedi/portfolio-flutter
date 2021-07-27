@@ -11,7 +11,7 @@ class ExpriencePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.only(top: 40, bottom: 100),
+          padding: EdgeInsets.only(top: 40, bottom: 50),
           width: MediaQuery.of(context).size.width,
           color: defaultWhite,
           child: Center(child: Text("Work Experience", style: TextStyle(color: defaultBlack, fontSize: 28, fontWeight: FontWeight.bold),)),
