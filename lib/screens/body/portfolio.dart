@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constant/color.dart';
+import 'package:portfolio/utils/functions.dart';
+import 'package:portfolio/widgets/portfolio_image.dart';
 
 enum ExprienceCatogory{
  andriod,
@@ -84,20 +86,37 @@ List<IconData> icons = <IconData>[
 
 Widget _status(projectShowCase) {
   if (projectShowCase == ExprienceCatogory.andriod) {
-    return ProjectShowCase();
+    return ProjectShowCase(
+      data: androidProtfolio,
+    );
   } else if(projectShowCase == ExprienceCatogory.web) {
-    return Text('web');
+    return ProjectShowCase(
+      data: webProtfolio,
+    );
   }else if(projectShowCase == ExprienceCatogory.ios) {
-    return Text('ios');
+    return ProjectShowCase(
+      data: iosProtfolio,
+    );
   }else if(projectShowCase == ExprienceCatogory.package) {
-    return Text('package');
+    return ProjectShowCase(
+      data: packageProtfolio,
+    );
   }else {
     return Text("Somthing missing");
   }
 }
 
-class ProjectShowCase extends StatelessWidget {
-  const ProjectShowCase({ Key key }) : super(key: key);
+class ProjectShowCase extends StatefulWidget {
+  final data;
+  const ProjectShowCase({ 
+    Key key , this.data
+  }) : super(key: key);
+
+  @override
+  _ProjectShowCaseState createState() => _ProjectShowCaseState();
+}
+
+class _ProjectShowCaseState extends State<ProjectShowCase> {
 
   @override
   Widget build(BuildContext context) {
@@ -113,19 +132,18 @@ class ProjectShowCase extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Card(
-                  child: Container(
-                    height: size - 200,
-                    width: size,
-                    child: Image.asset("assets/project/clockdo.png",),
-                  ),
-                ),
-                Card(
-                  child: Container(
-                    height:size - 200,
-                    width:size,
-                  ),
-                )
+               PortfolioImage(
+                 imagePath: widget.data[0]["imagePath"],
+                 title: widget.data[0]["title"],
+                 subtitle: widget.data[0]["subtitle"],
+                 onTap:()=> launchURL(widget.data[0]["liveUrl"]),
+               ),
+               PortfolioImage(
+                 imagePath: widget.data[1]["imagePath"],
+                 title: widget.data[1]["title"],
+                 subtitle: widget.data[1]["subtitle"],
+                 onTap:()=> launchURL(widget.data[1]["liveUrl"]),
+               ),
               ],
             ),
           ),
@@ -133,18 +151,18 @@ class ProjectShowCase extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Card(
-                  child: Container(
-                    height:size - 200,
-                    width: size,
-                  )
+                PortfolioImage(
+                  imagePath: widget.data[2]["imagePath"],
+                  title: widget.data[2]["title"],
+                  subtitle: widget.data[2]["subtitle"],
+                  onTap:()=> launchURL(widget.data[2]["liveUrl"]),
                 ),
-                Card(
-                  child: Container(
-                    height: size - 200,
-                    width: size,
-                  ),
-                )
+                PortfolioImage(
+                  imagePath: widget.data[3]["imagePath"],
+                  title: widget.data[3]["title"],
+                  subtitle: widget.data[3]["subtitle"],
+                  onTap:()=> launchURL(widget.data[3]["liveUrl"]),
+                ),
               ],
             ),
           ),
@@ -153,3 +171,126 @@ class ProjectShowCase extends StatelessWidget {
     );
   }
 }
+
+
+List<Map<String, String>> androidProtfolio = [
+
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/pharmacy.png",
+  "title": "Subidha Pharmacy",
+  "subtitle": "E-commerce mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.subidhabd.pharmacy"
+},
+{
+  "imagePath": "assets/project/subidha.png",
+  "title": "Subidha",
+  "subtitle": "E-commerce mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.subidhabd.customerapp"
+},
+{
+  "imagePath": "assets/project/greendhaka.png",
+  "title": "Green Dhaka",
+  "subtitle": "Onlline Nursery mobile application",
+  "liveUrl": "https://github.com/jpmehedi/green-dhaka"
+}
+
+];
+
+List<Map<String, String>> webProtfolio = [
+
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+}
+
+];
+List<Map<String, String>> iosProtfolio = [
+
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+}
+
+];
+List<Map<String, String>> packageProtfolio = [
+
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+},
+{
+  "imagePath": "assets/project/clockdo.png",
+  "title": "ClockDo",
+  "subtitle": "Task management mobile application",
+  "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
+}
+
+];
+
+
+
+
+
+
+
+
