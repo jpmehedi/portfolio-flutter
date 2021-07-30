@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class NavButton extends StatelessWidget {
   final Function onTap;
   final String buttonText;
+  final Color textColor;
   const NavButton({
-    Key key, this.onTap, this.buttonText
+    Key key, this.onTap, this.buttonText, this.textColor
   }) : super(key: key);
 
   @override
@@ -19,7 +20,7 @@ class NavButton extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Text("$buttonText".toUpperCase()),
+            child: Text("$buttonText".toUpperCase(), style: TextStyle(color: textColor ?? Colors.white),),
           ),
         ),
       ),
