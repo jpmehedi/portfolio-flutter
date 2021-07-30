@@ -15,12 +15,12 @@ import 'package:portfolio/widgets/nav_button.dart';
 import 'package:portfolio/widgets/social_button.dart';
 
 
-class HomePage extends StatefulWidget {
+class HomeScreenWeb extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeScreenWebState createState() => _HomeScreenWebState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenWebState extends State<HomeScreenWeb> {
 
     ScrollController _scrollController = new ScrollController();
     double expandedHight = 570.0;

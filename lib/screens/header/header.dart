@@ -31,16 +31,11 @@ class StickyHeader extends StatelessWidget {
             repeat: true,
             showTwoGlows: true,
             repeatPauseDuration: Duration(milliseconds: 100),
-            child: Material(
-              shape: CircleBorder(),
-              child: ClipOval(
-                child: Image.asset(
-                "assets/mehedi_hasan.jpg",
-                 width: 120,
-                 height: 120,
-                ),
+            child: CircleAvatar(
+              radius: 60.0,
+              backgroundImage: AssetImage("assets/mehedi_hasan.jpg"),
+              backgroundColor: Colors.transparent,
               ),
-            ),
           ),
           SizedBox(height: 24,),
           Text(
@@ -52,14 +47,27 @@ class StickyHeader extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20,),
-          Text(
-            "Flutter Developer || NodeJs Developer || UX/UI Expart".toUpperCase(),
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w700
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
+                  "Flutter Developer || NodeJs Developer || UX/UI Expart".toUpperCase(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    height: 1.5
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                ),
+              ],
             ),
           ),
+
           SizedBox(height: 20,),
           Container(
             child: Row(
