@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constant/url.dart';
-import 'package:portfolio/screens/body/about.dart';
+import 'package:portfolio/screens/body/about/about_layout.dart';
 import 'package:portfolio/screens/body/contact.dart';
 import 'package:portfolio/screens/body/education.dart';
 import 'package:portfolio/screens/body/exprience.dart';
@@ -233,7 +233,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
 }
 
 List<Widget> _pages = [
-  AboutPage(),
+  AboutLayout(),
   SkillsPage(),
   PortfolioPage(),
   ExpriencePage(),
