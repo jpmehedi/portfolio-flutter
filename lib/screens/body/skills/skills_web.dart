@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constant/color.dart';
+import 'package:portfolio/screens/body/skills/data.dart';
 import 'package:portfolio/widgets/skill_bar_builder.dart';
 
-class SkillsPage extends StatelessWidget {
-  const SkillsPage({ Key key }) : super(key: key);
+class SkillsWeb extends StatelessWidget {
+  const SkillsWeb({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +68,3 @@ class SkillsPage extends StatelessWidget {
   }
 }
 
-List<String> progress = <String>["90", "95", "80", "75", "65", "50","70", "85"];
-
-List<String> skillsName = <String>["Dart", "Flutter", "HTML & CSS", "JavaScript", "MongoDB | FireBase | SqLite | MySql", "WORDPRESS", "GOLANG", "NodeJS | ExpressJs"];
