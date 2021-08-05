@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constant/url.dart';
 import 'package:portfolio/screens/header/header.dart';
 import 'package:portfolio/screens/home/data.dart';
+import 'package:portfolio/screens/home/functions.dart';
 import 'package:portfolio/utils/functions.dart';
 import 'package:portfolio/widgets/nav_button.dart';
 import 'package:portfolio/widgets/social_button.dart';
@@ -15,28 +16,23 @@ class HomeScreenMobile extends StatefulWidget {
 
 class _HomeScreenMobileState extends State<HomeScreenMobile> {
 
-    ScrollController _scrollController = new ScrollController();
-    double expandedHight = 570.0;
-    double res = 0.0;
-
     @override
     void initState() {
-      _scrollController.addListener(() => setState(() { _scrollListener();}));
+      scrollController.addListener(() => setState(() { _scrollListener();}));
       super.initState();
     }
-
-    bodyScrollControll (double height) {
-      _scrollController.animateTo(
-        height,
-        duration: Duration(seconds: 1),
-        curve: Curves.fastOutSlowIn,
-      );
+    var values = 0.0;
+    _scrollListener() {
+      if(scrollController.position.pixels <= scrollController.position.maxScrollExtent){
+        setState(() {
+          values = scrollController.position.pixels; 
+        });
+      }
     }
-
     double get top {
       res = expandedHight;
-      if (_scrollController.hasClients) {
-        double offset = _scrollController.offset;
+      if (scrollController.hasClients) {
+        double offset = scrollController.offset;
         if (offset < (res - kToolbarHeight)) {
           setState(() {
             res -= offset;
@@ -48,15 +44,6 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
         }
       }
       return res;
-    }
-
-    var values = 0.0;
-    _scrollListener() {
-      if(_scrollController.position.pixels <= _scrollController.position.maxScrollExtent){
-        setState(() {
-          values = _scrollController.position.pixels; 
-        });
-      }
     }
 
     @override
@@ -84,7 +71,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                           for(int i = 0; i < navBarButtonText.length; i++)
                           NavButton(
                             onTap: (){
-                              bodyScrollControll(bodyScrollControlHeight[i]);
+                               scrollControl(globalKeys[i]);
                             },
                             buttonText: navBarButtonText[i],
                           ),
@@ -125,7 +112,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                         for(int i = 0; i < navBarButtonText.length; i++)
                         NavButton(
                           onTap: (){
-                            bodyScrollControll(bodyScrollControlHeight[i]);
+                            scrollControl(globalKeys[i]);
                           },
                           buttonText: navBarButtonText[i],
                         ),
@@ -152,7 +139,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
           body: Stack(
             children: [
               CustomScrollView(
-                controller: _scrollController,            
+                controller: scrollController,            
                 slivers: <Widget>[                 
                   SliverAppBar(  
                     backwardsCompatibility: true,   
@@ -163,7 +150,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: (){
-                            bodyScrollControll(0.0);
+                             goToTop(0.0);
                           },
                           child: Text("Resume of".toUpperCase()),
                         ),
@@ -186,7 +173,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                   //Body and Footer Section
                   Container(
                     child: SliverList(
-                      delegate:  SliverChildListDelegate(pages)
+                      delegate: new SliverChildListDelegate([pages()]),
                     ),
                   ),
 
@@ -219,7 +206,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
     
   @override
   void dispose() {
-    _scrollController.dispose();
+    scrollController.dispose();
     super.dispose();
   }
 }
