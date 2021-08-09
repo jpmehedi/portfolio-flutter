@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class CustomFromField extends StatelessWidget {
   final String hintText;
   final IconData icon;
+  final double width;
   const CustomFromField({
-    Key key, this.hintText, this.icon
+    Key key, this.hintText, this.icon, this.width
   }) : super(key: key);
 
   
@@ -14,7 +15,7 @@ class CustomFromField extends StatelessWidget {
   Widget build(BuildContext context) {
    final width = MediaQuery.of(context).size.width;
     return Container(
-      width: width / 4 - 100,
+      width: width ?? width / 4 - 100,
       height: 40,
       child: TextFormField(
           decoration: InputDecoration(
