@@ -15,11 +15,12 @@ class HomeScreenMobile extends StatefulWidget {
 }
 
 class _HomeScreenMobileState extends State<HomeScreenMobile> {
+  ScrollController scrollController = new ScrollController();
 
     @override
     void initState() {
-      scrollController.addListener(() => setState(() { _scrollListener();}));
       super.initState();
+      scrollController.addListener(() => setState(() { _scrollListener();}));
     }
     var values = 0.0;
     _scrollListener() {
@@ -203,6 +204,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
           ),
       );
     }
+    
     
   @override
   void dispose() {

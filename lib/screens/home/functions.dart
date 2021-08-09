@@ -9,6 +9,7 @@ import 'package:portfolio/screens/body/skills/skill_layout.dart';
 import 'package:portfolio/screens/footer/footer.dart';
 import 'package:portfolio/screens/home/data.dart';
 
+ScrollController scrollController = new ScrollController();
 
 Column pages() {
   return Column(
