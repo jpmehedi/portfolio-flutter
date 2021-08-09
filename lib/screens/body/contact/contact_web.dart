@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/body/contact/data.dart';
 import 'package:portfolio/widgets/address_tile.dart';
 import 'package:portfolio/widgets/custom_textfield.dart';
 
-class ContactPage extends StatelessWidget {
-  const ContactPage({ Key key }) : super(key: key);
+class ContactWebPage extends StatelessWidget {
+  const ContactWebPage({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
    final width = MediaQuery.of(context).size.width;
+   print(width);
     return  Stack(
       children: [
         Container(
           color: Colors.teal,
-          height: MediaQuery.of(context).size.height / 2 * 1.6,
+          height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Image.asset("assets/contact_bg.png", fit: BoxFit.cover,),
         ),
         Positioned(
           top: 60,
           bottom: 60,
-          left: width / 4 + 50,
-          right: width / 4 + 50,
+          left: 100,
+          right: 100,
           child: Container(
             decoration: boxDecoration(),
             child: Form(
@@ -35,10 +37,11 @@ class ContactPage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
                             child: Container(
-                              height: width / 4 - 50,
+                              height: 400,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,8 +53,7 @@ class ContactPage extends StatelessWidget {
                                     icon: icon[i],
                                   ),
                                   Container(
-                                    width: width / 4 - 100,
-                                    height: 40,
+                                    height: 82,
                                     child: TextFormField(
                                       minLines: 6, 
                                       keyboardType: TextInputType.multiline,
@@ -63,7 +65,9 @@ class ContactPage extends StatelessWidget {
                                       
                                     ),
                                   ),
-                                  SizedBox( width: 80, height: 40,
+                                  SizedBox( 
+                                    width: 80, 
+                                    height: 40,
                                     child: ElevatedButton(
                                       style: buttonStyle(),
                                       onPressed: (){}, 
@@ -77,7 +81,7 @@ class ContactPage extends StatelessWidget {
                           SizedBox(width: 80),
                           Expanded(
                             child: Container(
-                              height: width / 4 - 50,
+                              height: 400,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -136,11 +140,3 @@ class ContactPage extends StatelessWidget {
    );
   }
 }
-
-
-List<String> hintText = <String>[
-  "Name", "Subject", "Email"
-];
-List<IconData> icon = <IconData>[
-  Icons.person, Icons.note, Icons.email
-];

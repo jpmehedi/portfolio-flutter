@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/body/about/about_layout.dart';
-import 'package:portfolio/screens/body/contact.dart';
+import 'package:portfolio/screens/body/contact/contact_layout.dart';
 import 'package:portfolio/screens/body/education.dart';
 import 'package:portfolio/screens/body/exprience.dart';
 import 'package:portfolio/screens/body/portfolio.dart';
@@ -20,7 +20,7 @@ Column pages() {
     Container(child: ExpriencePage(), key: exprienceKeys),
     Container(child: EducationPage()),
     Container(child: ReferenceLayout()),
-    Container(child: ContactPage(), key: contactKeys,),
+    Container(child: ContactLayout(), key: contactKeys,),
     Container(child: FooterPage())
   ],
   );
