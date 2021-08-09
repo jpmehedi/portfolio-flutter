@@ -5,7 +5,7 @@ import 'package:portfolio/constant/url.dart';
 
 
 
-ScrollController scrollController = new ScrollController();
+
 
 double expandedHight = 570.0;
 double res = 0.0;

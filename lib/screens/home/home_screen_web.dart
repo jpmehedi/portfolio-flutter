@@ -16,10 +16,24 @@ class HomeScreenWeb extends StatefulWidget {
 class _HomeScreenWebState extends State<HomeScreenWeb> {
 
 
+    // @override
+    // void initState() {
+    //   super.initState();
+    //   if (this.mounted) {
+    //     setState(() {
+    //       scrollController.addListener(() => setState(() { _scrollListener();}));
+    //     });
+    //   }
+    // }
+
+    ScrollController scrollController = new ScrollController();
+
     @override
     void initState() {
-      scrollController.addListener(() => setState(() { _scrollListener();}));
       super.initState();
+      setState(() {
+        scrollController.addListener(() => setState(() { _scrollListener();}));
+      });
     }
     var values = 0.0;
     _scrollListener() {
