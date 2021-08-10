@@ -3,7 +3,7 @@ import 'package:portfolio/screens/body/about/about_layout.dart';
 import 'package:portfolio/screens/body/contact/contact_layout.dart';
 import 'package:portfolio/screens/body/education/education_layout.dart';
 import 'package:portfolio/screens/body/exprience/exprience_layout.dart';
-import 'package:portfolio/screens/body/portfolio.dart';
+import 'package:portfolio/screens/body/portfolio/portfolio_layout.dart';
 import 'package:portfolio/screens/body/reference/reference_layout.dart';
 import 'package:portfolio/screens/body/skills/skill_layout.dart';
 import 'package:portfolio/screens/footer/footer.dart';
@@ -16,7 +16,7 @@ Column pages() {
   children: [
     Container(child: AboutLayout(), key: aboutKeys),
     Container(child: SkillsLayout(), key: skillsKeys),
-    Container(child: PortfolioPage(), key: portFolioKeys),
+    Container(child: Portfoliolayout(), key: portFolioKeys),
     Container(child: ExprienceLayout(), key: exprienceKeys),
     Container(child: EducationLayout()),
     Container(child: ReferenceLayout()),

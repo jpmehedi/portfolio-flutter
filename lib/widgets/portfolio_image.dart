@@ -7,11 +7,13 @@ class PortfolioImage extends StatefulWidget {
   final String title;
   final String subtitle;
   final Function onTap;
+  final bool isWeb;
 
   const PortfolioImage({
     @required this.imagePath, 
     this.title, 
     this.subtitle,
+    this.isWeb,
     @required this.onTap,
   });
 
@@ -46,10 +48,11 @@ class _PortfolioImageState extends State<PortfolioImage> {
   }
   @override
   Widget build(context) {
-    var size = MediaQuery.of(context).size.width / 2.5;
-    return Container(
-      height:size - 200,
-      width: size,
+    var webSize = MediaQuery.of(context).size.width * 0.43;
+    var size = MediaQuery.of(context).size.width;
+    return widget.isWeb ? Container(
+      width: webSize * 0.86, 
+      height:  webSize * 0.64,
       child: InkWell(      
           onTap: widget.onTap,
           onHover: _onHover,
@@ -60,14 +63,54 @@ class _PortfolioImageState extends State<PortfolioImage> {
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeIn,
               padding: EdgeInsets.all(isHover ? 15 : 0),
-              child: Image.asset("${widget.imagePath}", fit: BoxFit.cover, width: size, height: size - 200,),
+              child: Image.asset("${widget.imagePath}", 
+              fit: BoxFit.cover, 
+              width:  webSize * 0.86, 
+              height: webSize * 0.64,
+             ),
             ),
 
             isHover ? AnimatedContainer(
               duration: Duration(milliseconds: 300),
               curve: Curves.easeIn,
-              height: size - 200,
-              width:  size,
+              width:  webSize * 0.86, 
+              height:  webSize * 0.64,
+              margin: EdgeInsets.all(isHover ? 15 : 0),
+              color: Colors.black54 .withOpacity(0.50),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("${widget.title}", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500)),
+                  SizedBox(height: 10),
+                  Text("${widget.subtitle}", style:TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500))
+                ],
+              ),
+            ) : Container(height: 0,width: 0),
+          ],
+        ),
+      ),
+     ) : Container(
+      child: InkWell(      
+          onTap: widget.onTap,
+          onHover: _onHover,
+          hoverColor: Colors.teal,
+          child: Stack(
+            children: [  
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeIn,
+              padding: EdgeInsets.all(isHover ? 15 : 0),
+              child: Image.asset("${widget.imagePath}", 
+              fit: BoxFit.fitHeight, 
+              width: size,
+             ),
+            ),
+
+            isHover ? AnimatedContainer(
+              width: size,
+              height: size * 0.75 - 45,
+              duration: Duration(milliseconds: 300),
+              curve: Curves.easeIn,
               margin: EdgeInsets.all(isHover ? 15 : 0),
               color: Colors.black54 .withOpacity(0.50),
               child: Column(
