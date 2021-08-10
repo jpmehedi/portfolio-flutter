@@ -18,7 +18,7 @@ class _ReferenceMobileState extends State<ReferenceMobile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      padding: EdgeInsets.all(20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -33,54 +33,53 @@ class _ReferenceMobileState extends State<ReferenceMobile> {
             shadowColor: Colors.grey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              // mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  child: Builder(
-                    builder: (context) {
-                      return CarouselSlider(
-                      options: CarouselOptions(
-                       height: 300,
-                      initialPage: _current,
-                      viewportFraction: 1.0,
-                      enlargeCenterPage: false,
-                      autoPlay: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _current = index;
-                        });
-                      }
-                    ),
-                    items: recomendations.map((item) => Container(
-                      padding: EdgeInsets.all(15),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [                                  
-                                  Image.network("${item["recomender_picture"]}", width: 100,height: 100,),
-                                  Text("${item["recomender_name"]}",style: TextStyle(height: 1.5, fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black87)),
-                                  Text("${item["recomender_position"]}",style: TextStyle(height: 1.5, fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black54))
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 30,),
-                            Container(
-                              child: Text("${item["recomendation"]}",
-                               style: TextStyle(height: 1.5, fontSize: 14, color: Colors.black45), 
-                               textAlign: TextAlign.justify,
-                               overflow: TextOverflow.visible
-                               ),
-                            )
-                          ],
-                        )
-                        ),
-                      ).toList(),
-                     );
-                    },
+                Builder(
+                  builder: (context) {
+                    return CarouselSlider(
+                    options: CarouselOptions(
+                    initialPage: _current,
+                    height: MediaQuery.of(context).size.height * 0.75,
+                    viewportFraction: 1.0,
+                    enlargeCenterPage: false,
+                    autoPlay: true,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _current = index;
+                      });
+                    }
                   ),
+                  items: recomendations.map((item) => Container(
+                    padding: EdgeInsets.all(15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        // mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [                                  
+                                Image.network("${item["recomender_picture"]}", width: 100,height: 100,),
+                                Text("${item["recomender_name"]}",style: TextStyle(height: 1.5, fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black87)),
+                                Text("${item["recomender_position"]}",style: TextStyle(height: 1.5, fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black54))
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Text("${item["recomendation"]}",
+                             style: TextStyle(height: 1.5, fontSize: 14, color: Colors.black45), 
+                             textAlign: TextAlign.justify,
+                             overflow: TextOverflow.visible
+                             ),
+                          )
+                        ],
+                      )
+                      ),
+                    ).toList(),
+                   );
+                  },
                 ),
                 Container(
                   child: Row(

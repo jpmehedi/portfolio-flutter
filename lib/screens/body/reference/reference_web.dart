@@ -18,6 +18,7 @@ class _ReferenceWebState extends State<ReferenceWeb> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       child: Column(
         children: [
           Container(
@@ -38,7 +39,7 @@ class _ReferenceWebState extends State<ReferenceWeb> {
                     builder: (context) {
                       return CarouselSlider(
                       options: CarouselOptions(
-                      height: 210,
+                      height: MediaQuery.of(context).size.height * 0.38,
                       initialPage: _current,
                       viewportFraction: 1.0,
                       enlargeCenterPage: false,
@@ -47,7 +48,7 @@ class _ReferenceWebState extends State<ReferenceWeb> {
                         setState(() {
                           _current = index;
                         });
-                      }
+                      } 
                     ),
                     items: recomendations.map((item) => Container(
                       padding: EdgeInsets.all(15),
