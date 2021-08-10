@@ -67,7 +67,7 @@ class EducationCardBuilder extends StatelessWidget {
              ) : Row(
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: Container(
                     padding: EdgeInsets.all(20),
                     color: defaultGreen,

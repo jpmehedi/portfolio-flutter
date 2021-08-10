@@ -17,6 +17,7 @@ class EducationWebPage extends StatelessWidget {
           child: Center(child: Text("Education", style: TextStyle(color: defaultBlack, fontSize: 28, fontWeight: FontWeight.bold),)),
         ),
         EducationCardBuilder(
+          isMobile: false,
           duration: "2017 - 2020",
           courseName: "Bachelor's Degree",
           courseTitle: "Computer Science & Engineering",
@@ -27,6 +28,7 @@ class EducationWebPage extends StatelessWidget {
         ),
         SizedBox(height: 20 ,),
         EducationCardBuilder(
+          isMobile: false,
           duration: "2011 - 2015",
           courseName: "Diploma's Degree",
           courseTitle: "Civil Engineering",
@@ -37,6 +39,7 @@ class EducationWebPage extends StatelessWidget {
         ),
         SizedBox(height: 20 ,),
         EducationCardBuilder(
+          isMobile: false,
           duration: "2009 - 2011",
           courseName: "High School",
           courseTitle: "Science and Mathematics",
