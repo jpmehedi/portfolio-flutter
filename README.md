@@ -1,16 +1,42 @@
-# portfolio
+# Portfolio by flutter web
 
-A new Flutter project.
+This is portfolio web application, created by Mehedi Hasan [see more on](https://mehedihasaninfo.com/ "I am flutter developer")
 
-## Getting Started
+## Greating Start
 
-This project is a starting point for a Flutter application.
+ - Clone the repo
+ - Install the dependicies
+ - Run it
 
-A few resources to get you started if this is your first Flutter project:
+## Preview 
+This is Full Functional Website
+| |
+|--------|
+[![Portfolio](https://user-images.githubusercontent.com/29401466/129079692-86e2afb6-e8eb-4a7a-b6f7-69dcfbb1b662.png)](https://user-images.githubusercontent.com/29401466/129077773-1dafd437-bce2-4e3e-a631-fbb9ae863bbb.mp4)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Version History 
+|Version |Date | Comment|
+|--------|-----|--------|
+|1.0 | July 2021 | Initial release
+
+## Contributing
+Feel welcome and free to submit issues, pull requests and features to this repo.
+
+## Support me
+
+I really like to make as much (free) beautiful Flutter UI , I want to  your inspiresion !
+
+## Other Flutter Apps
+
+There are other example Apps made with flutter, see more on Interestinate.
+
+Or the following repo's:
+
+A Fitness  Flutter App: [Fitness App UI](https://github.com/flutterbangladesh/fitness-app-flutter)
+A eDaktar App Flutter : [eDaktar App UI](https://github.com/jpmehedi/edaktar_app_flutter)
+A Furniture App Flutter : [Furniture App UI](https://github.com/jpmehedi/furniture-app-flutter)
+
+
+
