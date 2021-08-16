@@ -1,6 +1,10 @@
 
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/constant/url.dart';
+import 'package:portfolio/screens/home/data.dart';
+import 'package:portfolio/screens/home/functions.dart';
+import 'package:portfolio/utils/functions.dart';
 
 class StickyHeader extends StatelessWidget {
   const StickyHeader({
@@ -79,7 +83,9 @@ class StickyHeader extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4.0),
                     side: BorderSide(color: Colors.teal)),
-                  onPressed: () {},
+                  onPressed: () {
+                    scrollControl(contactKeys);
+                  },
                   color: Colors.teal,
                   textColor: Colors.white,
                   child: Text("Hire me".toUpperCase(),
@@ -92,7 +98,9 @@ class StickyHeader extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4.0),
                     side: BorderSide(color: Colors.teal)),
-                  onPressed: () {},
+                  onPressed: () {
+                   launchURL(URL.resumeURL);
+                  },
                   color: Colors.teal,
                   textColor: Colors.white,
                   child: Text("Download CV".toUpperCase(),

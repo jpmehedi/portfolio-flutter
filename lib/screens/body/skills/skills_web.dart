@@ -8,9 +8,11 @@ class SkillsWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width * 0.43;
     return Column(
       children: [
         Container(
+          padding: EdgeInsets.only(top: 36),
           width: MediaQuery.of(context).size.width,
           color: defaultWhite,
           child: Center(child: Text("Professional Skills", style: TextStyle(color: defaultBlack, fontSize: 28, fontWeight: FontWeight.bold),)),
@@ -19,7 +21,7 @@ class SkillsWeb extends StatelessWidget {
           color: Colors.white,
           child: Container(
             margin: EdgeInsets.only(top: 20, bottom: 80),
-            padding: EdgeInsets.symmetric(horizontal: 100),
+            padding: EdgeInsets.symmetric(horizontal: width / 4),
             child: Card(
               elevation: 10,
               shadowColor: Colors.grey,

@@ -16,16 +16,6 @@ class HomeScreenWeb extends StatefulWidget {
 class _HomeScreenWebState extends State<HomeScreenWeb> {
 
 
-    // @override
-    // void initState() {
-    //   super.initState();
-    //   if (this.mounted) {
-    //     setState(() {
-    //       scrollController.addListener(() => setState(() { _scrollListener();}));
-    //     });
-    //   }
-    // }
-
     ScrollController scrollController = new ScrollController();
 
     @override
@@ -62,6 +52,7 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
 
     @override
     Widget build(BuildContext context) {
+     final width = MediaQuery.of(context).size.width * 0.43;
       return Scaffold(
           body: Stack(
             children: [
@@ -70,16 +61,16 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                 slivers: <Widget>[                 
                   SliverAppBar(  
                     backwardsCompatibility: true,   
-                    leading: Container(
+                    title: Container(
                       padding: EdgeInsets.symmetric(vertical: 20),
-                      margin: EdgeInsets.only(left: 100),
+                      margin: EdgeInsets.only(left: width / 4 - 15),
                       child: MouseRegion(
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: (){
-                            goToTop(0.0);
+                             scrollControl(homeKeys);
                           },
-                          child: Text("Resume of".toUpperCase()),
+                          child: Text("Resume of".toUpperCase(), style: TextStyle(color: Colors.white, fontSize: 14),),
                         ),
                       ),        
                     ), 
@@ -105,7 +96,7 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                         },
                         buttonText: "Youtube",
                       ),
-                      SizedBox(width: 80,)
+                      SizedBox(width: (width / 4) - 15)
 
                     ],
 
@@ -120,7 +111,7 @@ class _HomeScreenWebState extends State<HomeScreenWeb> {
                       
                     //StickyHeader Section
                     flexibleSpace: FlexibleSpaceBar(
-                      background: StickyHeader(),                  
+                      background: Container(key: homeKeys,child: StickyHeader()),                  
                     ),
                   ),
 

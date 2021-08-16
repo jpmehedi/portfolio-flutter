@@ -56,12 +56,11 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                   height: MediaQuery.of(context).size.height,
                   child: Material(
                     child: DrawerHeader(
+                      margin: EdgeInsets.all(0.0),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Colors.teal, Colors.green],
-                          // begin: const FractionalOffset(0.0, 0.0),
                           begin: Alignment.bottomCenter,
-                          // end: const FractionalOffset(0.5, 0.0),
                           end: Alignment.topCenter,
                           stops: [0.0, 1.0],
                           tileMode: TileMode.clamp
@@ -70,23 +69,32 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                       child: Column(
                         children: [
                           for(int i = 0; i < navBarButtonText.length; i++)
-                          NavButton(
-                            onTap: (){
-                               scrollControl(globalKeys[i]);
-                            },
-                            buttonText: navBarButtonText[i],
+                          TextButton(
+                            onPressed: null,
+                            child: NavButton(
+                              onTap: (){
+                                scrollControl(globalKeys[i]);
+                              },
+                              buttonText: navBarButtonText[i],
+                            ),
                           ),
-                          NavButton(
-                            onTap: ()async {
-                              await launchURL(URL.blogURL);
-                            },
-                            buttonText: "Blog",
+                          TextButton(
+                            onPressed: null,
+                            child: NavButton(
+                              onTap: ()async {
+                                await launchURL(URL.blogURL);
+                              },
+                              buttonText: "Blog",
+                            ),
                           ), 
-                           NavButton(
-                            onTap: ()async {
-                              await launchURL(URL.youtubeURL);
-                            },
-                            buttonText: "Youtube",
+                          TextButton(
+                            onPressed: null,
+                            child: NavButton(
+                              onTap: ()async {
+                                await launchURL(URL.youtubeURL);
+                              },
+                              buttonText: "Youtube",
+                            ),
                           ),
                          ],
                         ),
@@ -99,6 +107,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height,
                   child: DrawerHeader(
+                    margin: EdgeInsets.all(0.0),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [Colors.teal, Colors.green],
@@ -111,24 +120,33 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                     child: Column(
                       children: [
                         for(int i = 0; i < navBarButtonText.length; i++)
-                        NavButton(
-                          onTap: (){
-                            scrollControl(globalKeys[i]);
-                          },
-                          buttonText: navBarButtonText[i],
+                        TextButton(
+                          onPressed: null,
+                          child: NavButton(
+                            onTap: (){
+                              scrollControl(globalKeys[i]);
+                            },
+                            buttonText: navBarButtonText[i],
+                          ),
                         ),
-                        NavButton(
-                          onTap: ()async {
-                            await launchURL(URL.blogURL);
-                          },
-                          buttonText: "Blog",
+                        TextButton(
+                          onPressed: null,
+                          child: NavButton(
+                            onTap: ()async {
+                              await launchURL(URL.blogURL);
+                            },
+                            buttonText: "Blog",
+                          ),
                         ), 
-                         NavButton(
-                          onTap: ()async {
-                            await launchURL(URL.youtubeURL);
-                          },
-                          buttonText: "Youtube",
-                        ),
+                         TextButton(
+                           onPressed: null,
+                           child: NavButton(
+                            onTap: ()async {
+                              await launchURL(URL.youtubeURL);
+                            },
+                            buttonText: "Youtube",
+                           ),
+                         ),
                        ],
                       ),
                     curve: SawTooth(12),
@@ -151,7 +169,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: (){
-                             goToTop(0.0);
+                            scrollControl(homeKeys);
                           },
                           child: Text("Resume of".toUpperCase()),
                         ),
@@ -167,7 +185,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                       
                     //StickyHeader Section
                     flexibleSpace: FlexibleSpaceBar(
-                      background: StickyHeader(),                  
+                      background: Container(key: homeKeys,child: StickyHeader()),       
                     ),
                   ),
 
