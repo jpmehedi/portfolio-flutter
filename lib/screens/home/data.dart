@@ -27,7 +27,7 @@ List<dynamic> bodyScrollControlHeight = [
 List<String> navBarButtonText = [
   "About", "Skills", "Portfolio", "Experience", "Contact"
 ];
-
+final homeKeys = GlobalKey();
 final aboutKeys = GlobalKey();
 final skillsKeys = GlobalKey();
 final contactKeys = GlobalKey();

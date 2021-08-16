@@ -14,7 +14,6 @@ class ReferenceMobile extends StatefulWidget {
 class _ReferenceMobileState extends State<ReferenceMobile> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,12 +27,13 @@ class _ReferenceMobileState extends State<ReferenceMobile> {
             color: defaultWhite,
             child: Center(child: Text("References", style: TextStyle(color: defaultBlack, fontSize: 28, fontWeight: FontWeight.bold),)),
           ),
+          SizedBox(height: 36),
           Card(
             elevation: 10,
             shadowColor: Colors.grey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              // mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Builder(
                   builder: (context) {
@@ -49,8 +49,8 @@ class _ReferenceMobileState extends State<ReferenceMobile> {
                         _current = index;
                       });
                     }
-                  ),
-                  items: recomendations.map((item) => Container(
+                   ),
+                   items: recomendations.map((item) => Container(
                     padding: EdgeInsets.all(15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,

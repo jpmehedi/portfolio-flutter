@@ -14,10 +14,11 @@ class ExprienceCardBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width * 0.43;
     return Container(
       color: Colors.white,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : 100),
+        padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : width / 4),
         child: Card(
           elevation: 10,
           shadowColor: Colors.grey,

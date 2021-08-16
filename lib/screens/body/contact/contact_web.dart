@@ -8,8 +8,7 @@ class ContactWebPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   final width = MediaQuery.of(context).size.width;
-   print(width);
+   final width = MediaQuery.of(context).size.width * 0.43;
     return  Stack(
       children: [
         Container(
@@ -19,10 +18,10 @@ class ContactWebPage extends StatelessWidget {
           child: Image.asset("assets/contact_bg.png", fit: BoxFit.cover,),
         ),
         Positioned(
-          top: 60,
-          bottom: 60,
-          left: 100,
-          right: 100,
+          top: 100,
+          bottom: 100,
+          left: width - 250,
+          right: width - 250,
           child: Container(
             decoration: boxDecoration(),
             child: Form(

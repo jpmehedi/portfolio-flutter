@@ -31,7 +31,7 @@ List<IconData> icons = <IconData>[
   FontAwesomeIcons.android,
   FontAwesomeIcons.globe,
   FontAwesomeIcons.apple,
-  FontAwesomeIcons.page4
+  FontAwesomeIcons.paperclip
 ];
 
 Widget androidView(projectShowCase) {
@@ -83,25 +83,25 @@ Widget webView(projectShowCase) {
 List<Map<String, String>> androidProtfolio = [
 
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/android/clockdo.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/pharmacy.png",
+  "imagePath": "assets/android/pharmacy.png",
   "title": "Subidha Pharmacy",
   "subtitle": "E-commerce mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.subidhabd.pharmacy"
 },
 {
-  "imagePath": "assets/project/subidha.png",
+  "imagePath": "assets/android/subidha.png",
   "title": "Subidha",
   "subtitle": "E-commerce mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.subidhabd.customerapp"
 },
 {
-  "imagePath": "assets/project/greendhaka.png",
+  "imagePath": "assets/android/greendhaka.png",
   "title": "Green Dhaka",
   "subtitle": "Onlline Nursery mobile application",
   "liveUrl": "https://github.com/jpmehedi/green-dhaka"
@@ -112,25 +112,25 @@ List<Map<String, String>> androidProtfolio = [
 List<Map<String, String>> webProtfolio = [
 
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/web/ATS_BUILDERS.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/web/travel.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/web/news.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/web/language-center.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
@@ -140,25 +140,25 @@ List<Map<String, String>> webProtfolio = [
 List<Map<String, String>> iosProtfolio = [
 
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/ios/CoffeShop.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/ios/HomeAutomation.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/ios/Payement.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/ios/Project_Management_App.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
@@ -168,25 +168,25 @@ List<Map<String, String>> iosProtfolio = [
 List<Map<String, String>> packageProtfolio = [
 
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/package/horizontal_calender.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/package/overlay_avatar.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/package/ecommerce_ui.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"
 },
 {
-  "imagePath": "assets/project/clockdo.png",
+  "imagePath": "assets/package/overlay_avatar.png",
   "title": "ClockDo",
   "subtitle": "Task management mobile application",
   "liveUrl": "https://play.google.com/store/apps/details?id=com.augnitive.todo"

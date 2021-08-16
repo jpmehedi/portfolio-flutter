@@ -18,7 +18,6 @@ class _ProjectShoaawCaseWebState extends State<ProjectShoaawCaseWeb> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 100),
-      // width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

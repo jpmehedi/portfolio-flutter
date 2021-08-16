@@ -80,9 +80,9 @@ class _PortfolioImageState extends State<PortfolioImage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("${widget.title}", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500)),
+                  Text("${widget.title}", style: TextStyle(color: Colors.white, fontSize: size < 380 ? 14 : 22, fontWeight: FontWeight.w500)),
                   SizedBox(height: 10),
-                  Text("${widget.subtitle}", style:TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500))
+                  Text("${widget.subtitle}", style:TextStyle(color: Colors.white, fontSize: size < 380 ? 14 : 22, fontWeight: FontWeight.w500))
                 ],
               ),
             ) : Container(height: 0,width: 0),
@@ -116,9 +116,9 @@ class _PortfolioImageState extends State<PortfolioImage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("${widget.title}", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500)),
+                  Text("${widget.title}", style: TextStyle(color: Colors.white, fontSize: size < 380 ? 14 : 22, fontWeight: FontWeight.w500)),
                   SizedBox(height: 10),
-                  Text("${widget.subtitle}", style:TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500))
+                  Text("${widget.subtitle}", style:TextStyle(color: Colors.white, fontSize: size < 380 ? 14 : 22, fontWeight: FontWeight.w500))
                 ],
               ),
             ) : Container(height: 0,width: 0),

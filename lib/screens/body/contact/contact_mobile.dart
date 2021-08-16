@@ -60,6 +60,16 @@ class ContactMobilePage extends StatelessWidget {
                               
                             ),
                           ),
+                          SizedBox(height: 28,),
+                          SizedBox( 
+                            width: 80, 
+                            height: 40,
+                            child: ElevatedButton(
+                              style: buttonStyle(),
+                              onPressed: (){}, 
+                              child: Text("Send"),
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -83,15 +93,6 @@ class ContactMobilePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox( 
-                    width: 80, 
-                    height: 40,
-                    child: ElevatedButton(
-                      style: buttonStyle(),
-                      onPressed: (){}, 
-                      child: Text("Send"),
-                    ),
-                  )
                 ],
               ),
             ),
